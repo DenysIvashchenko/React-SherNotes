@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import env from '../env.json';
 
 function Note() {
+    console.log('Note')
     let { noteURL } = useParams();
     const [noteText, setNoteText] = useState('');
     const [lineClass, setLineClass] = useState('hide');
@@ -10,6 +11,7 @@ function Note() {
     const [errorClass, setErrorClass] = useState('hide');
 
     useEffect(() => {
+        console.log('useEffect')
         if (noteURL !== undefined) {
             fetch(env.urlBackend, {
                 method: 'POST',
@@ -55,7 +57,7 @@ function Note() {
     const searchNote = () => {
         window.location.href = env.url;
     }
-
+    console.log('render')
     return (
         <div className="container">
             <section className="note">
